@@ -7,8 +7,18 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("holamundo!");
+        int estrellas;
+
+        do {
+            System.out.print("Ingrese la cantidad de la base de estrellas que contendra el arbol de navidad: ");
+            estrellas = Integer.parseInt(input.nextLine());
+        } while (estrellas % 2 == 0 || estrellas < 3);
+
+
+
+
 
 
     }
