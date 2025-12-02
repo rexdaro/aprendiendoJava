@@ -1,5 +1,6 @@
 package org.example;
 import java.sql.Array;
+import java.util.Locale;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -7,48 +8,36 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        imprimir(esPerfecto());
-
-    }
-
-    static void imprimir (boolean x) {
-        if (x){
-            System.out.println("su numero si es un numero perfecto");
-        } else {
-            System.out.println("su numero no es un numero perfecto");
-        }
-
-    }
-
-    static boolean esPerfecto () {
-
-        int num = pedirNumero();
-        return  num == calcularPerfecto(num);
-    }
-
-    static int pedirNumero () {
-
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Escriba un numero:  ");
+        System.out.print("Ingrese el precio del articulo: ");
+        int precio = Integer.parseInt(input.nextLine());
 
-        return Integer.parseInt(input.nextLine());
-    }
+        char categoria = ' ';
 
-    static int calcularPerfecto (int num) {
-
-        int sumatoriaDeDivisores = 0;
-
-        for (int i = 1; i < num; i++) {
-            if (num % i == 0){
-                sumatoriaDeDivisores += i;
-            }
+        while (!(categoria == 'A' || categoria == 'B' || categoria == 'C')) {
+            System.out.print("Ingrese la categoria del articulo [A ,B ,C]: ");
+            categoria = Character.toUpperCase(input.nextLine().charAt(0));
         }
 
-
-        return sumatoriaDeDivisores;
+        switch (categoria){
+            case 'A':
+                System.out.println("Descuento aplicado: 10%");
+                System.out.println("Precio final: " + (precio - ((double) precio * 0.1)));
+                break;
+            case 'B':
+                System.out.println("Descuento aplicado: 15%");
+                System.out.println("Precio final: " + (precio - ((double) precio * 0.15)));
+                break;
+            case 'C':
+                System.out.println("Descuento aplicado: 20%");
+                System.out.println("Precio final: " + (precio - ((double) precio * 0.2)));
+                break;
+            default:
+                break;
+        }
     }
+
 
 
 }
