@@ -31,7 +31,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Escriba un numero: ");
+        System.out.print("Escriba un numero:  ");
 
         return Integer.parseInt(input.nextLine());
     }
