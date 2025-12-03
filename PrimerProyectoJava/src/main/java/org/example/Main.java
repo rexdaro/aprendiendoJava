@@ -8,34 +8,55 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
+        int [] numeros = new int[8];
+
+        pedirNumeros(numeros);
+
+        double promedio = calcularPromedio(numeros);
+
+        System.out.println("El promedio de los numeros ingresados es: " + promedio);
+
+        mostrarNumerosMayoresAPromedio(promedio, numeros);
+
+    }
+
+    static void pedirNumeros(int[] num){
+
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Ingrese el precio del articulo: ");
-        int precio = Integer.parseInt(input.nextLine());
-
-        char categoria = ' ';
-
-        while (!(categoria == 'A' || categoria == 'B' || categoria == 'C')) {
-            System.out.print("Ingrese la categoria del articulo [A ,B ,C]: ");
-            categoria = Character.toUpperCase(input.nextLine().charAt(0));
+        for (int i = 0; i < num.length; i++) {
+            System.out.print("Ingrese el numero " + (i + 1) + ": ");
+            num[i] = Integer.parseInt(input.nextLine());
         }
 
-        switch (categoria){
-            case 'A':
-                System.out.println("Descuento aplicado: 10%");
-                System.out.println("Precio final: " + (precio - ((double) precio * 0.1)));
-                break;
-            case 'B':
-                System.out.println("Descuento aplicado: 15%");
-                System.out.println("Precio final: " + (precio - ((double) precio * 0.15)));
-                break;
-            case 'C':
-                System.out.println("Descuento aplicado: 20%");
-                System.out.println("Precio final: " + (precio - ((double) precio * 0.2)));
-                break;
-            default:
-                break;
+    }
+
+    static double calcularPromedio(int[] num){
+
+        double promedio;
+        int acumulador = 0;
+
+        for (int i = 0; i < num.length; i++) {
+            acumulador += num[i];
         }
+
+        promedio = (double) acumulador / num.length;
+
+        return promedio;
+    }
+
+    static void mostrarNumerosMayoresAPromedio(double promedio, int [] num){
+
+        System.out.println("Los numeros mayores al promedio son: ");
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] > promedio){
+
+                System.out.println(num[i]);
+
+            }
+        }
+
     }
 
 
