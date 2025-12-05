@@ -11,22 +11,37 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        int num = 1;
-        int acc = 0;
+        System.out.print("Ingrese el precio del producto: ");
+        double precio = Integer.parseInt(input.nextLine());
+        System.out.print("Ingrese el peso del paquete en kg: ");
+        double peso = Integer.parseInt(input.nextLine());
+        System.out.print("Ingrese la zona de envío (Nacional/Internacional): ");
+        String zona = input.nextLine();
 
-        while (num != 0){
-            System.out.print("Ingrese un número (0 para terminar): ");
-            num = Integer.parseInt(input.nextLine());
 
-            if (num % 2 == 0) {
-                acc += num;
-            }
 
-        }
 
-        System.out.println("la sumatoria de los numeros pares es: " + acc);
+        System.out.println("El costo de envío es: " + calcularCostoEnvio(peso, zona));
+        System.out.println("El costo de envío es: " + calcularTotalCompra(peso, precio, zona));
+
 
     }
+
+    static double calcularCostoEnvio(double peso, String zona){
+        if (zona.equals("Nacional")) {
+            return 5 * peso;
+        } else {
+            return 10 * peso;
+        }
+    };
+
+    static double calcularTotalCompra(double peso, double precio, String zona) {
+
+        double envio = calcularCostoEnvio(peso, zona);
+
+
+        return precio + envio;
+    };
 
 
 }
