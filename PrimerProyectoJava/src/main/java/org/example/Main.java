@@ -11,7 +11,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-    xxx
+    class Auto {
+        String marca;
+        String modelo;
+        int anio;
+
+        Auto(String marca, String modelo, int anio){
+            this.marca = marca;
+            this.modelo = modelo;
+            this.anio = anio;
+        }
+
+        void mostrarInfo (){
+            System.out.println(marca);
+            System.out.println(modelo);
+            System.out.println(anio);
+        }
+    }
+
+    Auto corolla = new Auto("Toyota", "Corolla GLX", 2010);
+
+    corolla.mostrarInfo();
+
+        System.out.println("programita xd");
+
 
     }
 
